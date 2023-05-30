@@ -1,8 +1,8 @@
-package Inputs;
+package inputs;
 
 import java.awt.event.KeyListener;
 
-import Game.GamePanel;
+import game.GamePanel;
 
 import java.awt.event.KeyEvent;
 

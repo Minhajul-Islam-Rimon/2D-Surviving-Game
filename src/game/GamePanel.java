@@ -1,19 +1,13 @@
-package Game;
+package game;
 
 import javax.swing.JPanel;
-import javax.swing.text.html.HTMLDocument.Iterator;
 
-import Inputs.KeyboardInputs;
-import Inputs.MouseInputs;
+import inputs.KeyboardInputs;
 
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.nio.Buffer;
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 
 public class GamePanel  extends JPanel{
