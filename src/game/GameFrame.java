@@ -1,26 +1,22 @@
 package game;
 
 import javax.swing.JFrame;
+//import javax.swing.JPanel;
+
+import utils.Vector2;
+
 
 public class GameFrame {
 
-JFrame jframe;
+    JFrame jframe;
+    public final Vector2 resolution = new Vector2(1600 , 900);
 
-public GameFrame(GamePanel gamePanel) {
-
-
-    JFrame jframe = new JFrame("Survival");
-
-    this.jframe.add(gamePanel);
-
-    jframe.setSize(600, 600);
-    jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //jframe.SetLocation(200,50);
-   // jframe.setBounds(200, 50, 400, 300);
-    //jframe.setTitle("Survival");
-    jframe.setLocationRelativeTo(null);
-    jframe.setVisible(true);
-
-
+    public GameFrame(GamePanel gamePanel) {
+        jframe = new JFrame("Survival");
+        this.jframe.add(gamePanel);
+        jframe.setSize((int)resolution.x, (int)resolution.y);
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jframe.setLocationRelativeTo(null);
+        jframe.setVisible(true);
     }
 }

@@ -20,6 +20,7 @@ public class Vector2 {
     public double magnitude() {
         return Math.sqrt(x * x + y * y);
     }
+
     public double sqrMagnitude() {
         return x * x + y * y;
     }
@@ -28,6 +29,7 @@ public class Vector2 {
         float mag = (float)this.magnitude();
         return new Vector2(this.x / mag , y / mag);
     }
+
     public void set(float x, float y) {
         this.x = x; this.y = y;
     }
@@ -39,6 +41,7 @@ public class Vector2 {
     public void add(Vector2 secondVector) {
         this.set(this.x + secondVector.x, this.y + secondVector.y);
     }
+
     public void subtract(Vector2 secondVector) {
         this.set(this.x - secondVector.x, this.y - secondVector.y);
     }
