@@ -25,7 +25,6 @@ public class Projectile2 extends Entity {
         super(pos, 20, Color.DARK_GRAY, gamePanel);
         loadImg();
         this.tagName = Taglist.projectile;
-        //this.pos = new Vector2(gamePanel.player.pos.x - 60, gamePanel.player.pos.y);
         target = gamePanel.player.getClosestEnemyPos(pos);
         this.targetDir = Vector2.vectorDistance(target, this.pos);
         Vector2 lookDir = Vector2.vectorDistance(target, pos);
@@ -44,7 +43,6 @@ public class Projectile2 extends Entity {
         Graphics2D g2d = (Graphics2D)graphics;
         AffineTransform backup = g2d.getTransform();
         AffineTransform at = AffineTransform.getRotateInstance(angle + (Math.PI/2), (int)pos.x, (int)pos.y);
-        // System.out.println(angle);
         g2d.setTransform(at);
         graphics.drawImage(sprite,(int) (pos.x - radius), (int)pos.y - radius, radius, radius* 3, null);
         g2d.setTransform(backup);

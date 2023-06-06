@@ -23,8 +23,8 @@ public abstract class Entity {
     }
 
     public void render(Graphics graphics) {
-        graphics.fillArc((int)pos.x - radius, (int)pos.y - radius, radius * 2 , radius * 2, 0, 360);
         graphics.setColor(color);
+        graphics.fillArc((int)pos.x - radius, (int)pos.y - radius, radius * 2 , radius * 2, 0, 360);
     }
 
     public void update() {

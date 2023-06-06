@@ -9,4 +9,7 @@ public abstract class Stats {
         if(damage > currentHealth) currentHealth = 0;
         else currentHealth -= damage;
     }
+    public void fullHeal() {
+        currentHealth = maxHealth;
+    }
 }

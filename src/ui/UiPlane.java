@@ -14,6 +14,7 @@ public class UiPlane {
         this.gamePanel = gamePanel;
         elements.add(new HealthBar(this.gamePanel));
         elements.add(new ScoreCounter(this.gamePanel));
+        elements.add(new DeathScreen(this.gamePanel));
 
     }
 

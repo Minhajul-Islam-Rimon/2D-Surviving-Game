@@ -9,6 +9,7 @@ import entities.Projectile;
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
 import ui.UiPlane;
+import utils.Taglist;
 import utils.Vector2;
 
 import java.awt.Color;
@@ -21,6 +22,7 @@ import java.util.ListIterator;
 public class GamePanel extends JPanel {
 
     int x = 200, y = 200;
+    public boolean isPaused = false;
     public Player player;
     public Vector2 currentMousePos = new Vector2(0, 0);
     public ArrayList<Entity> entityList = new ArrayList<Entity>();
@@ -69,10 +71,12 @@ public class GamePanel extends JPanel {
             }
             listBuffer.clear();
         }
+        checkDeath();
         player.setClosestEnemy(entityList);
         for(int i = 0; i < entityList.size(); i++) {
             Entity current = entityList.get(i);
-            current.update();
+            if(!isPaused)
+                current.update();
             checkCollision(current);
             current.render(graphics);
         }
@@ -80,6 +84,10 @@ public class GamePanel extends JPanel {
         uiPlane.render(graphics);
     }
 
+    public void checkDeath() {
+        if(player.stats.currentHealth <= 0)
+            isPaused = true;
+    }
     public void instantiate(Entity object) {
         listBuffer.add(object);
         // entityList.add(object);
@@ -94,6 +102,16 @@ public class GamePanel extends JPanel {
         float y = (float) Math.random() * 1000;
         Vector2 newPos = new Vector2(x,y);
         entityList.add(new Enemy(newPos, 30, getBackground(), this));
+    }
+
+    public void reset() {
+        for(Entity x: entityList) {
+            if(x.tagName == Taglist.enemy)
+                entityList.remove(x);
+        }
+        player.pos = new Vector2(500, 500);
+        player.stats.fullHeal();
+
     }
 
 

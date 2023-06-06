@@ -37,7 +37,6 @@ public class Player extends Entity {
     }
 
     private void importImg() {
-        //InputStream stream = getClass().getResourceAsStream("/player_sprite.png");
         try {
             playerSprite = ImageIO.read(new File("assets/player_sprite.png"));
         } catch (IOException e) {
@@ -47,7 +46,6 @@ public class Player extends Entity {
 
     @Override
     public void render(Graphics graphics) {
-        //graphics.drawImage(playerSprite, (int)pos.x, (int)pos.y, null);
         graphics.drawImage(playerSprite,(int) pos.x - radius, (int)pos.y - radius, radius * 2, radius * 2, null);
     }
 
@@ -60,13 +58,7 @@ public class Player extends Entity {
 
         size++;
         if(size >20) {
-            //Vector2 random = new Vector2((float)Math.random() * 1000,(float) Math.random() * 1000);
-            //gamePanel.instantiate(new Projectile(pos,closestEnemy.pos, 20, gamePanel));
-            //gamePanel.entityList.add(new Enemy(new Vector2((float)Math.random() * 500, (float)Math.random() * 500), 20, Color.BLUE, gamePanel));
-            //gamePanel.entityList.add(new Projectile(pos,closestEnemy.pos.normalized(), 20, gamePanel));
-            //gamePanel.instantiate(new Enemy(random, 30, Color.BLUE, gamePanel));
             gamePanel.spawnEnemy();
-            // gamePanel.instantiate(new Projectile2(pos, gamePanel));
             size = 0;
         }
     }
@@ -77,7 +69,6 @@ public class Player extends Entity {
         for(int i = 0; i < list.size(); i++) {
             Entity current = list.get(i);
             if(current.tagName == Taglist.enemy) {
-                //double dist = Vector2.sqDistance(x.pos, pos);
                 if(Vector2.sqDistance(current.pos, this.pos) < closestDistance)
                     closest = current;
                 closestDistance = Vector2.sqDistance(current.pos, this.pos);
